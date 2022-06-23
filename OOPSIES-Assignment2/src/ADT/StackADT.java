@@ -13,22 +13,23 @@ import java.util.Stack;
  */
 public interface StackADT<E> {
 	/**
-	 * Description: 
-	 * Preconditions:
-	 * Post conditions:
+	 * Description: Adds an element to the top of the stack
+	 * Preconditions: A created stack
+	 * Post conditions: Stack has depth + 1 
 	 */
 	public void push();
+	
 	/**
-	 * Description:
-	 * Preconditions:
-	 * Post conditions:
+	 * Description: removes top element from stack
+	 * Preconditions: a created stack
+	 * Post conditions: stack has depth - 1
 	 */
 	public void pop();
-	/**
-	 * 
-	 * Description:
-	 * Preconditions:
-	 * Post conditions:
+	
+	/** 
+	 * Description:acsess top element in stack 
+	 * Preconditions: stack created 
+	 * Post conditions: accessed stack element
 	 */
 	public void	peek();
 	
@@ -68,31 +69,34 @@ public interface StackADT<E> {
 	
 	
 	/**
+	 * Description: array 
+	 * Preconditions: must have stack
+	 * Post conditions: array has items in stack
 	 * @param copy
 	 * @return
 	 */
 	public E[] toArray(E[] copy);
 	
 	/**
-	 * Description: 
-	 * Preconditions:
-	 * Post conditions:
+	 * Description: for searching the stack
+	 * Preconditions: must have a stack
+	 * Post conditions: will find item in stack 
 	 * @param obj
-	 * @return
+	 * @return found object
 	 */
 	public int search(E obj);
 	
 	
 	/**
-	 * Description:
-	 * Preconditions:
-	 * Post conditions:
+	 * Description: finds size of stack
+	 * Preconditions: must have stack 
+	 * Post conditions: returns size of stack 
 	 * @return size of stack
 	 */
 	public int size();
 	
 	/**
-	 * Description: 
+	 * Description: checks if stack is empty
 	 * Preconditions: must have stack
 	 * Post conditions: will return a result 
 	 * @return true/false if empty
@@ -100,9 +104,9 @@ public interface StackADT<E> {
 	public boolean isEmpty();
 	
 	/**
-	 * Description:
-	 * Preconditions:
-	 * Post conditions:
+	 * Description: clears the stack
+	 * Preconditions: must have stack
+	 * Post conditions: stack is cleared
 	 */
 	public void clear();
 
