@@ -16,13 +16,15 @@ public interface StackADT<E> {
 	 * Description: Adds an element to the top of the stack
 	 * Preconditions: A created stack
 	 * Post conditions: Stack has depth + 1 
+	 * @throws
 	 */
-	public void push();
+	public void push() ;
 	
 	/**
 	 * Description: removes top element from stack
 	 * Preconditions: a created stack
 	 * Post conditions: stack has depth - 1
+	 * @throws EmptyStackException when there is no element to pop due to the stack being empty
 	 */
 	public void pop();
 	
@@ -30,6 +32,7 @@ public interface StackADT<E> {
 	 * Description:acsess top element in stack 
 	 * Preconditions: stack created 
 	 * Post conditions: accessed stack element
+	 * @throws
 	 */
 	public void	peek();
 	
@@ -39,6 +42,7 @@ public interface StackADT<E> {
 	 * Post conditions: 
 	 * @param that
 	 * @return true/false if equal/not equal
+	 * 
 	 */
 	public boolean equals(StackADT<E> that);
 	
@@ -56,6 +60,7 @@ public interface StackADT<E> {
 	 * Preconditions: stack must exist
 	 * Post conditions: results in iterator 
 	 * @return iterates over the items in the stack
+	 * @throws EmptyStackException 
 	 */
 	public Iterator<E> iterator();
 	
