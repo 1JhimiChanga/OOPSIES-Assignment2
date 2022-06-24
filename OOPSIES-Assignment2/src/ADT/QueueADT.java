@@ -1,6 +1,13 @@
 package ADT;
 
 import java.util.Iterator;
+/**
+ * Class description:
+ *
+ * @author Navkaran Waraich (873944)
+ *
+ * @param <E>
+ */
 
 public interface QueueADT<E> {
 	
@@ -11,6 +18,7 @@ public interface QueueADT<E> {
 	 * PostCondition: a new Queue
 	 * @return Results in a new empty Queue
 	 */
+	
 	public void createQueue();
 	
 	/** 
@@ -25,31 +33,36 @@ public interface QueueADT<E> {
 	 * Description: Removes the first element
 	 * Precondition: queue must have an element
 	 * PostCondition: first element will be removed, queue size - 1
+	 * @param <E>
 	 * @return element removed from queue
 	 */
-	public E dequeue();
+	
+	public E dequeue() throws EmptyQueueException;
 	
 	/** 
 	 * Description: allows access to the first element in the queue
 	 * Precondition: queue must have at least one element
 	 * PostCondition: the value at element(0) will show
+	 * @param <E>
 	 * @return shows element(E)
 	 */
-	public E peek();
+	public E peek() throws EmptyQueueException;
 	
 	/** 
 	 * Description: iterates over items in a stack
 	 * Precondition: stack must exist
 	 * PostCondition: results in iterator
+	 * @param <E>
 	 * @return iterates over the items in the stack
 	 */
-	Iterator<E> iterator();
+	Iterator<E> iterator() throws EmptyQueueException;
+	;
 	
 	/** 
 	 * Description: checks if two queues contain equal items in the same order
 	 * Precondition: two queues with equal items and in the same order
 	 * PostCondition: returns true if both are equal
-	 * @return returns true if equal
+	 * @return returns true if equal, otherwise false
 	 */
 	public boolean equals(QueueADT<E> that);
 	
@@ -61,6 +74,7 @@ public interface QueueADT<E> {
 	 * @return size of queue
 	 */
 	public int size();
+	;
 	
 	/** 
 	 * Description: returns an array containing all of the items in the queue
@@ -82,17 +96,16 @@ public interface QueueADT<E> {
 	 * Description: optional method that will check of a fixed sized queue is full
 	 * Precondition: fixed-sized queue must be full
 	 * PostCondition: returns true if queue is full
-	 * @return returns true if full 
+	 * @return returns true if full, otherwise false
 	 */
 	
 	public boolean isFull();
 
-	
 	/** 
 	 * Description: returns a boolean if the Queue is empty
 	 * Precondition: an existing Queue
 	 * PostCondition: Returns a true boolean if Queue is empty
-	 * @return true if Queue is empty
+	 * @return true if Queue is empty, otherwise false
 	 */
 	public boolean isEmpty();
 	
@@ -102,6 +115,7 @@ public interface QueueADT<E> {
 	 * PostCondition: the queue will be empty
 	 * @return queue is empty
 	 */
+	
 	public void dequeueAll();
 	
 	/** 
