@@ -5,115 +5,138 @@ import java.util.Stack;
 
 
 /**
- * Class description:
+ * Class description: An abstract data type that refers to all operations for the Stack Class
  *
- * @author Hayley Mead (781756)
+ * @author Hayley Mead
+ * @author Jimmy Van
+ * @author Navkaran Waraich
+ * @author Griff Thaxter
+ * @version June 25, 2022
+ * 
  *
- * @param <E>
+ * 
  */
 public interface StackADT<E> {
 	/**
-	 * Description: Adds an element to the top of the stack
-	 * Preconditions: A created stack
+	 * Adds an element to the top of the stack <br>
+	 * Preconditions: Stack is not full<br>
 	 * Post conditions: Stack has depth + 1 
-	 * @throws
+	 * @throws NullPointerException if element is null
+	 * @param element Desired value to be added to the stack
 	 */
-	public void push() ;
+	public void push(E element) ;
 	
 	/**
-	 * Description: removes top element from stack
-	 * Preconditions: a created stack
-	 * Post conditions: stack has depth - 1
-	 * @throws EmptyStackException when there is no element to pop due to the stack being empty
+	 * Removes top element from stack<br>
+	 * Preconditions: The stack is not empty stack<br>
+	 * Post conditions: Stack has depth - 1
+	 * @throws EmptyStackException  When there is no element to pop due to the stack being empty
 	 */
-	public void pop();
+	public void pop() throws EmptyStackException;
 	
 	/** 
-	 * Description:acsess top element in stack 
-	 * Preconditions: stack created 
-	 * Post conditions: accessed stack element
-	 * @throws
+	 * Access top element in stack without removing it <br>
+	 * Preconditions: Stack needs at least one element <br>
+	 * Post conditions: Captures top element of the stack without removing it 
+	 * @throws EmptyStackException  if there is no element to peek due to the stack being empty
 	 */
-	public void	peek();
+	public void	peek() throws EmptyStackException;
 	
 	/**
-	 * Description: checks if two stacks are equal
-	 * Preconditions: check if two stacks with equal items in same order
-	 * Post conditions: 
-	 * @param that
+	 * Checks if two stacks are equal<br>
+	 * Preconditions: "that" is not null<br>
+	 * Post conditions: Results a value determining if the two stacks are equal
+	 * @param that - A second stack that will be compared to the stack calling the method 
+	 * @throws NullPointerException  if "that" is null 
 	 * @return true/false if equal/not equal
 	 * 
 	 */
-	public boolean equals(StackADT<E> that);
+	public boolean equals(StackADT<E> that) throws NullPointerException;
 	
 	/**
-	 * Description: 
-	 * Preconditions:
-	 * Post conditions:
-	 * @return 
+	 * Creates a new empty stack<br>
+	 * Preconditions: Stack must have a unique name compared to existing stacks<br>
+	 * Post conditions: Results in a new empty stack
+	 * @return an empty stack
 	 */
 	public Stack<E> newStack();
 	
 	
 	/**
-	 * Description: iterates over items in a stack
-	 * Preconditions: stack must exist
-	 * Post conditions: results in iterator 
-	 * @return iterates over the items in the stack
-	 * @throws EmptyStackException 
+	 * Iterates over items in a stack<br>
+	 * Preconditions: None<br>
+	 * Post conditions: Results in iterator 
+	 * @return An iterator for said stack
+	 * 
 	 */
 	public Iterator<E> iterator();
 	
 	/**
-	 * Description: array containing all items in this stack 
-	 * Preconditions: must have stack
-	 * Post conditions: array has items in stack
-	 * @return array with items in stack
+	 * Converts stack to an array containing all items in this stack <br>
+	 * Preconditions: Stack must have at least one element<br>
+	 * Post conditions: Array has copied items from stack
+	 * @throws EmptyStackException  If the stack is empty therefore causing an empty array
+	 * @return Array with items from stack
 	 */
-	public Object[] toArray();
+	public Object[] toArray() throws EmptyStackException;
 	
 	
 	/**
-	 * Description: array 
-	 * Preconditions: must have stack
-	 * Post conditions: array has items in stack
-	 * @param copy
-	 * @return
+	 * Converts stack to an array containing all items in this stack <br>
+	 * Preconditions: Stack has at least one element<br>
+	 * Post conditions: Array has copied items from stack
+	 * @throws EmptyStackException  If the stack is empty therefore causing an empty array
+	 * @throws NullPointerException  If copy is null
+	 * @param A stack that is valid to be copied into an array
+	 * @return an array of the elements of the stack
 	 */
-	public E[] toArray(E[] copy);
+	public E[] toArray(E[] copy) throws EmptyStackException, NullPointerException;
 	
 	/**
-	 * Description: for searching the stack
-	 * Preconditions: must have a stack
-	 * Post conditions: will find item in stack 
+	 * Searches for element in stack equal to obj<br>
+	 * Preconditions: Stack must have at least one element<br>
+	 * Post conditions: Results in the index of the desired element
+	 * @throws NullPointerException  If obj is null 
+	 * @throws EmptyStackException if stack is empty and there are no elements to search 
 	 * @param obj
 	 * @return found object
+	 * 
 	 */
-	public int search(E obj);
+	public int search(E obj) throws NullPointerException, EmptyStackException;
 	
 	
 	/**
-	 * Description: finds size of stack
-	 * Preconditions: must have stack 
+	 * Gets the size of stack<br>
+	 * Preconditions: None<br>
 	 * Post conditions: returns size of stack 
 	 * @return size of stack
 	 */
 	public int size();
 	
 	/**
-	 * Description: checks if stack is empty
-	 * Preconditions: must have stack
-	 * Post conditions: will return a result 
-	 * @return true/false if empty
+	 * Checks if stack is empty<br>
+	 * Preconditions: None<br>
+	 * Post conditions: Will return a value indicating if stack is empty
+	 * @return true/false if empty or not
 	 */
 	public boolean isEmpty();
 	
 	/**
-	 * Description: clears the stack
-	 * Preconditions: must have stack
-	 * Post conditions: stack is cleared
+	 * Clears the stack<br>
+	 * Preconditions: None<br>
+	 * Post conditions: Stack is cleared
 	 */
 	public void clear();
+	/**
+	 * Provides a binary value indicating if obj is an element in the stack
+	 * Preconditions: Stack is not empty
+	 * Postconditions: Results in a value depending on if the stack contains an element equal to obj
+	 * @throws NullPointerException If obj is null
+	 * @throws EmptyStackException If stack is empty
+	 * @param obj Desired value to see if it exist in the stack
+	 * @return A binary value determining if the value of obj exist in the stack
+	 */
+	public boolean contains(E obj);
 
 	
 }
