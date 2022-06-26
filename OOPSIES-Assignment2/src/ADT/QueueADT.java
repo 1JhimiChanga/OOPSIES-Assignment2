@@ -2,8 +2,9 @@ package ADT;
 
 import java.util.Iterator;
 /**
- * Class description: An abstract data type that refers to all operations for the Queue Class
- *
+ * Title: Assignment 2 - Part 1 <br>
+ * Class description: An abstract data type that refers to all operations for the Queue Class <br>
+ * Section: A
  * @author Hayley Mead
  * @author Jimmy Van
  * @author Navkaran Waraich

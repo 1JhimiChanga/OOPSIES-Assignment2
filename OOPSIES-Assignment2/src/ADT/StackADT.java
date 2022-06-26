@@ -5,8 +5,8 @@ import java.util.Stack;
 
 
 /**
- * Title: Assignment 2 - Part 1 
- * Class description: An abstract data type that refers to all operations for the Stack Class
+ * Title: Assignment 2 - Part 1 <br>
+ * Class description: An abstract data type that refers to all operations for the Stack Class <br>
  * Section: A
  * 
  *
