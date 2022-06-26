@@ -1,5 +1,6 @@
 package ADT;
 
+import java.io.Serializable;
 import java.util.Iterator;
 /**
  * Title: Assignment 2 - Part 1 <br>
@@ -12,7 +13,7 @@ import java.util.Iterator;
  * @version June 26, 2022
  */
 
-public interface QueueADT<E> {
+public interface QueueADT<E> extends Serializable{
 	
 	
 	/** 
@@ -28,11 +29,12 @@ public interface QueueADT<E> {
 	 * Adds an elements to the end of a queue<br>
 	 * Precondition: Queue is not full<br>
 	 * PostCondition: Adds to the last element of the queue. Queue size + 1
-	 * @throw NullPointerException If element is null
+	 * @throws NullPointerException If element is null
+	 * @throws IndexOutOfBoundsException If the position of added element is out of range
 	 * @param element Desired value to be added to the queue
 	 * 
 	 */
-	public void enqueue(E element) throws NullPointerException;
+	public void enqueue(E element) throws NullPointerException, IndexOutOfBoundsException;
 	
 	/** 
 	 * Removes the first element<br>
@@ -86,7 +88,7 @@ public interface QueueADT<E> {
 	 * Returns an array containing all of the items in the queue<br>
 	 * Precondition: queue must contain at least one element<br>
 	 * PostCondition: array of items 
-	 * @throws EmptyStackException  If the queue is empty therefore causing an empty array
+	 * @throws EmptyQueueException  If the queue is empty therefore causing an empty array
 	 * @return an array of items from the queue
 	 */
 	public Object [] toArray() throws EmptyQueueException;
@@ -95,7 +97,7 @@ public interface QueueADT<E> {
 	 * Copies elements in the queue to an array<br>
 	 * Precondition: queue must contain at least one element<br>
 	 * PostCondition: an array of copied items from queue
-	 * @throws EmptyStackException  If the queue is empty therefore causing an empty array
+	 * @throws EmptyQueueException  If the queue is empty therefore causing an empty array
 	 * @throws NullPointerException  If copy is null
 	 * @param a queue that is valid to be copied into an array
 	 * @return array with items from queue

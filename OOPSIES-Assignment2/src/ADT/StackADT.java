@@ -1,5 +1,6 @@
 package ADT;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Stack;
 
@@ -20,15 +21,16 @@ import java.util.Stack;
  *
  * 
  */
-public interface StackADT<E> {
+public interface StackADT<E> extends Serializable  {
 	/**
 	 * Adds an element to the top of the stack <br>
 	 * Preconditions: Stack is not full<br>
 	 * Post conditions: Stack has depth + 1 
 	 * @throws NullPointerException If element is null
+	 * @throws IndexOutOfBoundsException If the index of the added element is out of bounds
 	 * @param element Desired value to be added to the stack
 	 */
-	public void push(E element) ;
+	public void push(E element) throws NullPointerException, IndexOutOfBoundsException ;
 	
 	/**
 	 * Removes top element from stack<br>
@@ -140,7 +142,7 @@ public interface StackADT<E> {
 	 * @param obj Desired value to see if it exist in the stack
 	 * @return A binary value determining if the value of obj exist in the stack
 	 */
-	public boolean contains(E obj);
+	public boolean contains(E obj) throws NullPointerException, EmptyStackException;
 
 	
 }
