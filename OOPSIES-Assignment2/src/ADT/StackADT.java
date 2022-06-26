@@ -5,13 +5,17 @@ import java.util.Stack;
 
 
 /**
+ * Title: Assignment 2 - Part 1 
  * Class description: An abstract data type that refers to all operations for the Stack Class
+ * Section: A
+ * 
  *
  * @author Hayley Mead
  * @author Jimmy Van
  * @author Navkaran Waraich
  * @author Griff Thaxter
  * @version June 25, 2022
+ * 
  * 
  *
  * 
@@ -21,7 +25,7 @@ public interface StackADT<E> {
 	 * Adds an element to the top of the stack <br>
 	 * Preconditions: Stack is not full<br>
 	 * Post conditions: Stack has depth + 1 
-	 * @throws NullPointerException if element is null
+	 * @throws NullPointerException If element is null
 	 * @param element Desired value to be added to the stack
 	 */
 	public void push(E element) ;
@@ -31,23 +35,25 @@ public interface StackADT<E> {
 	 * Preconditions: The stack is not empty stack<br>
 	 * Post conditions: Stack has depth - 1
 	 * @throws EmptyStackException  When there is no element to pop due to the stack being empty
+	 * @return removes and returns the top most element of the stack
 	 */
-	public void pop() throws EmptyStackException;
+	public E pop() throws EmptyStackException;
 	
 	/** 
 	 * Access top element in stack without removing it <br>
 	 * Preconditions: Stack needs at least one element <br>
 	 * Post conditions: Captures top element of the stack without removing it 
 	 * @throws EmptyStackException  if there is no element to peek due to the stack being empty
+	 * @return the value of the top most element of the stack 
 	 */
-	public void	peek() throws EmptyStackException;
+	public E peek() throws EmptyStackException;
 	
 	/**
-	 * Checks if two stacks are equal<br>
-	 * Preconditions: "that" is not null<br>
+	 * Checks if two stacks are equal in items as well as order<br>
+	 * Preconditions: Both stacks are not null<br>
 	 * Post conditions: Results a value determining if the two stacks are equal
 	 * @param that - A second stack that will be compared to the stack calling the method 
-	 * @throws NullPointerException  if "that" is null 
+	 * @throws NullPointerException  if either stack is null 
 	 * @return true/false if equal/not equal
 	 * 
 	 */
@@ -81,7 +87,7 @@ public interface StackADT<E> {
 	public Object[] toArray() throws EmptyStackException;
 	
 	/**
-	 * Converts stack to an array containing all items in this stack <br>
+	 * Copies stack to an array containing all items in this stack <br>
 	 * Preconditions: Stack has at least one element<br>
 	 * Post conditions: Array has copied items from stack
 	 * @throws EmptyStackException  If the stack is empty therefore causing an empty array
@@ -98,7 +104,7 @@ public interface StackADT<E> {
 	 * @throws NullPointerException  If obj is null 
 	 * @throws EmptyStackException if stack is empty and there are no elements to search 
 	 * @param obj
-	 * @return found object
+	 * @return index of found object
 	 * 
 	 */
 	public int search(E obj) throws NullPointerException, EmptyStackException;

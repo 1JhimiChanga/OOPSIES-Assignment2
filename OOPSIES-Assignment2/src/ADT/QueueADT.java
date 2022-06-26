@@ -15,62 +15,66 @@ public interface QueueADT<E> {
 	
 	
 	/** 
-	 * Description: Creates a new Queue<br>
-	 * Precondition: no queue<br>
-	 * PostCondition: a new Queue
+	 * Creates a new empty Queue<br>
+	 * Precondition: No existing queue has the same name as this one<br>
+	 * PostCondition: a new empty Queue
 	 * @return Results in a new empty Queue
 	 */
 	
 	public void createQueue();
 	
 	/** 
-	 * Description: Adds an elements to the end of a queue<br>
-	 * Precondition: queue must exist<br>
-	 * PostCondition: adds to the last element of the queue queue size + 1
-	 * @return new element added to queue
+	 * Adds an elements to the end of a queue<br>
+	 * Precondition: Queue is not full<br>
+	 * PostCondition: Adds to the last element of the queue. Queue size + 1
+	 * @throw NullPointerException If element is null
+	 * @param element Desired value to be added to the queue
+	 * 
 	 */
-	public void enqueue(E element);
+	public void enqueue(E element) throws NullPointerException;
 	
 	/** 
-	 * Description: Removes the first element<br>
-	 * Precondition: queue must have an element<br>
+	 * Removes the first element<br>
+	 * Precondition: Queue must have an element<br>
 	 * PostCondition: first element will be removed, queue size - 1
+	 * @throws EmptyQueueException If queue is empty
 	 * @return element removed from queue
 	 */
 	
 	public E dequeue() throws EmptyQueueException;
 	
 	/** 
-	 * Description: allows access to the first element in the queue<br>
+	 * Allows access to the first element in the queue<br>
 	 * Precondition: queue must have at least one element<br>
 	 * PostCondition: the value at element(0) will show
+	 * @throws EmptyQueueException If queue is empty
 	 * @return shows element(E)
 	 */
 	public E peek() throws EmptyQueueException;
 	
 	/** 
-	 * Description: iterates over items in a stack<br>
-	 * Precondition: stack must exist<br>
+	 * Iterates over items in a queue<br>
+	 * Precondition: queue must exist<br>
 	 * PostCondition: results in iterator
-	 * @return iterates over the items in the stack
+	 * @return An iterator for said queue
 	 */
 	public Iterator<E> iterator() throws EmptyQueueException;
 	
 	
 	/** 
-	 * Description: checks if two queues contain equal items in the same order<br>
-	 * Precondition: two queues with equal items and in the same order<br>
+	 * Checks if two queues contain equal items in the same order<br>
+	 * Precondition: Both queues are not null<br>
 	 * PostCondition: returns true if both are equal
-	 * @throws NullPointerException  if "that" is null 
-	 * @param that - A second stack that will be compared to the queue calling the method 
+	 * @throws NullPointerException  if either queue is null 
+	 * @param that  A second queue that will be compared to the queue calling the method 
 	 * @return returns true if equal, otherwise false
 	 */
 	public boolean equals(QueueADT<E> that) throws NullPointerException;
 	
 	
 	/** 
-	 * Description: checks the size of the queue<br>
-	 * Precondition: queue must exist<br>
+	 * Gets the size of the queue<br>
+	 * Precondition: None<br>
 	 * PostCondition: will return the size of the queue
 	 * @return size of queue
 	 */
@@ -78,7 +82,7 @@ public interface QueueADT<E> {
 	;
 	
 	/** 
-	 * Description: returns an array containing all of the items in the queue<br>
+	 * Returns an array containing all of the items in the queue<br>
 	 * Precondition: queue must contain at least one element<br>
 	 * PostCondition: array of items 
 	 * @throws EmptyStackException  If the queue is empty therefore causing an empty array
@@ -87,7 +91,7 @@ public interface QueueADT<E> {
 	public Object [] toArray() throws EmptyQueueException;
 	
 	/** 
-	 * Description: copies elements in the queue to an array<br>
+	 * Copies elements in the queue to an array<br>
 	 * Precondition: queue must contain at least one element<br>
 	 * PostCondition: an array of copied items from queue
 	 * @throws EmptyStackException  If the queue is empty therefore causing an empty array
@@ -95,19 +99,20 @@ public interface QueueADT<E> {
 	 * @param a queue that is valid to be copied into an array
 	 * @return array with items from queue
 	 */
-	public E[] toArray(E[] Copy)throws EmptyStackException, NullPointerException ;
+	public E[] toArray(E[] Copy)throws EmptyQueueException, NullPointerException ;
 	
 	/** 
-	 * Description: optional method that will check of a fixed sized queue is full<br>
-	 * Precondition: fixed-sized queue must be full<br>
+	 * Optional method that will check of a fixed sized queue is full<br>
+	 * Precondition: Queue is not empty<br>
 	 * PostCondition: returns true if queue is full
+	 * @throws EmptyQueueException If queue is empty
 	 * @return returns true if full, otherwise false
 	 */
 	
-	public boolean isFull();
+	public boolean isFull() throws EmptyQueueException;
 
 	/** 
-	 * Description: returns a boolean if the Queue is empty<br>
+	 * Returns a boolean if the Queue is empty<br>
 	 * Precondition: an existing Queue<br>
 	 * PostCondition: Returns a true boolean if Queue is empty
 	 * @return true if Queue is empty, otherwise false
@@ -115,16 +120,16 @@ public interface QueueADT<E> {
 	public boolean isEmpty();
 	
 	/** 
-	 * Description: clears the queue<br>
+	 * Clears the queue<br>
 	 * Precondition: must have at least one element<br>
 	 * PostCondition: the queue will be empty
-	 * @return queue is empty
+	 * 
 	 */
 	
 	public void dequeueAll();
 	
 	/** 
-	 * Description: returns a string representation of the queue<br>
+	 * Returns a string representation of the queue<br>
 	 * Precondition: queue must contain at least one element<br>
 	 * PostCondition: a string of the queue
 	 * @return a string representation of the queue
