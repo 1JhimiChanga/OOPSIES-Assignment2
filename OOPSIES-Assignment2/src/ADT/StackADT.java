@@ -80,7 +80,6 @@ public interface StackADT<E> {
 	 */
 	public Object[] toArray() throws EmptyStackException;
 	
-	
 	/**
 	 * Converts stack to an array containing all items in this stack <br>
 	 * Preconditions: Stack has at least one element<br>
@@ -103,7 +102,6 @@ public interface StackADT<E> {
 	 * 
 	 */
 	public int search(E obj) throws NullPointerException, EmptyStackException;
-	
 	
 	/**
 	 * Gets the size of stack<br>
@@ -128,8 +126,8 @@ public interface StackADT<E> {
 	 */
 	public void clear();
 	/**
-	 * Provides a binary value indicating if obj is an element in the stack
-	 * Preconditions: Stack is not empty
+	 * Provides a binary value indicating if obj is an element in the stack<br>
+	 * Preconditions: Stack is not empty<br>
 	 * Postconditions: Results in a value depending on if the stack contains an element equal to obj
 	 * @throws NullPointerException If obj is null
 	 * @throws EmptyStackException If stack is empty
